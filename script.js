@@ -16,55 +16,94 @@ function getComputerChoice() {
 /* Function to determine who wins the round, using basic comparing statements */
 function playRound(playerSelection, computerSelection) {
     playerOption = playerSelection.toLowerCase()
+    
     if (playerOption === computerSelection) {
-        return 0
+        return ["It is a draw!" + " Both selected " + playerOption, 0]
     }
     else if (playerOption === "rock" && computerSelection === "scissors") {
-        return 1
+        return ["You win! " + playerOption + " beats " + computerSelection, +1]
     }
     else if (playerOption === "paper" && computerSelection === "rock") {
-        return 1
+        return ["You win! " + playerOption + " beats " + computerSelection, +1]
     }
     else if (playerOption === "scissors" && computerSelection === "paper") {
-        return 1
+        return ["You win! " + playerOption + " beats " + computerSelection, +1]
     }
     else {
-        return 2
-
+        return ["You Loose! " + computerSelection + " beats " + playerOption, 0]
     }
+    
 }
 
-/* Function to run the game, there will be 5 rounds, counts the winner each round, return results of each round and final result of game */
-function game(results) {
-    let user = 0
-    let computer = 0
-    for (let i=0; i<5; i++) {
-        const playerSelection = prompt("Choose Rock, Paper or Scissors")
-        const computerSelection = getComputerChoice()
-        result = playRound(playerSelection, computerSelection)
-        if (result === 1){
-            user += 1
-            console.log("You win! " + playerOption + " beats " + computerSelection)
-        }
-        else if (result === 2){
-            computer += 1
-            console.log("You Loose! " + computerSelection + " beats " + playerOption)
-        }
-        else if (result === 0){
-            console.log("It is a draw!" + " Both selected " + playerOption)
-        }
-        console.log("score: " + user)
-    }
-    if (computer > user){
-        console.log("YOU LOSE " + computer + " to " + user)
-    }
-    else if (user > computer){
-        console.log("YOU WIN " + user + " to " + computer)
-    }
-    else{
-        console.log("It is a draw " + user + "/" + computer)
-    }
+/* Function to run the game, counts the winner each round, return results of each round and final result of game */
+function game() {
 
+    const rockBtn = document.getElementById('rock')
+    const paperBtn = document.getElementById('paper')
+    const scissorsBtn = document.getElementById('scissors')
+
+    const scoreDiv = document.getElementById('score')
+    const roundDiv = document.getElementById('round')
+    const dispDiv = document.getElementById('display')
+    const finalDiv = document.getElementById('final')
+
+    let score = 0;
+    let round = 0;
+  
+    // action once the 'rock' button is clicked
+    rockBtn.addEventListener("click", function(e){
+        let playerSelection = 'rock'
+        let computerSelection = getComputerChoice()
+        let result = playRound(playerSelection, computerSelection)
+        console.log(result[0]);
+        dispDiv.textContent = result[0]
+        scoreDiv.textContent = "The score is: " + (score += result[1]);
+        round == round++
+        roundDiv.textContent = "Round No. " + round + " out of 5."
+        if ( round == 5 && score < 3){
+            finalDiv.textContent = "YOU LOSE !!!"
+        }
+        else if ( round == 5 && score >= 3){
+            finalDiv.textContent = "CONGRATULAIONS, YOU WIN !!!"
+        }
+    })
+
+    // action once the 'paper' button is clicked
+    paperBtn.addEventListener("click", function(e){
+        let playerSelection = 'paper'
+        let computerSelection = getComputerChoice()
+        let result = playRound(playerSelection, computerSelection)
+        console.log(result[0]);
+        dispDiv.textContent = result[0]
+        scoreDiv.textContent = "The score is: " + (score += result[1]);
+        round == round++
+        roundDiv.textContent = "Round No. " + round + " out of 5."
+        if ( round == 5 && score < 3){
+            finalDiv.textContent = "YOU LOSE !!!"
+        }
+        else if ( round == 5 && score >= 3){
+            finalDiv.textContent = "CONGRATULAIONS, YOU WIN !!!"
+        }
+    })
+    
+    // action once the 'scissors' button is clicked
+    scissorsBtn.addEventListener("click", function(e){
+        let playerSelection = 'scissors'
+        let computerSelection = getComputerChoice()
+        let result = playRound(playerSelection, computerSelection)
+        console.log(result[0]);
+        dispDiv.textContent = result[0]
+        scoreDiv.textContent = "The score is: " + (score += result[1]);
+        round == round++
+        roundDiv.textContent = "Round No. " + round + " out of 5."
+        if ( round == 5 && score < 3){
+            finalDiv.textContent = "YOU LOSE !!!"
+        }
+        else if ( round == 5 && score >= 3){
+            finalDiv.textContent = "CONGRATULAIONS, YOU WIN !!!"
+        }
+    })
+ 
 }
 
 
