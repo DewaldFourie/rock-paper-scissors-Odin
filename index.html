@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>RPS</title>
 </head>
 <body>
-    <h1>This is a RPC Game, open console to view workings</h1>
-    <button id="rock">ROCK</button>
-    <button id="paper">PAPER</button>
-    <button id="scissors">SCISSORS</button>
+    <div class="headings">
+    <h1>Welcome to ROCK, PAPER, SCISSORS !</h1>
+    <h2>Choose your weapon</h2>
+    <h3>Best out of 5 wins.</h3>
+    </div>
+    <div class="btnbox">
+        <button class="btn" id="rock">ROCK</button>
+        <button class="btn" id="paper">PAPER</button>
+        <button class="btn" id="scissors">SCISSORS</button>
+    </div>
     <div id="display">Choose an option</div>
-    <div id="score">The score is: </div>
+    <div id="score">Score: </div>
     <div id="round">Round #: </div>
     <div id="final"></div>
     <script src="script.js"></script>

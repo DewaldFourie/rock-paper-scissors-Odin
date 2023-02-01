@@ -57,7 +57,7 @@ function game() {
         let result = playRound(playerSelection, computerSelection)
         console.log(result[0]);
         dispDiv.textContent = result[0]
-        scoreDiv.textContent = "The score is: " + (score += result[1]);
+        scoreDiv.textContent = "Score: " + (score += result[1]);
         round == round++
         roundDiv.textContent = "Round No. " + round + " out of 5."
         if ( round == 5 && score < 3){
@@ -75,7 +75,7 @@ function game() {
         let result = playRound(playerSelection, computerSelection)
         console.log(result[0]);
         dispDiv.textContent = result[0]
-        scoreDiv.textContent = "The score is: " + (score += result[1]);
+        scoreDiv.textContent = "Score: " + (score += result[1]);
         round == round++
         roundDiv.textContent = "Round No. " + round + " out of 5."
         if ( round == 5 && score < 3){
@@ -93,7 +93,7 @@ function game() {
         let result = playRound(playerSelection, computerSelection)
         console.log(result[0]);
         dispDiv.textContent = result[0]
-        scoreDiv.textContent = "The score is: " + (score += result[1]);
+        scoreDiv.textContent = "Score: " + (score += result[1]);
         round == round++
         roundDiv.textContent = "Round No. " + round + " out of 5."
         if ( round == 5 && score < 3){
